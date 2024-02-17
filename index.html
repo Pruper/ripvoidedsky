@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days since VoidedSky death</title>
+
+    <style>
+        * {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        html,
+        body {
+            margin: auto;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        p {
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="voidedsky_icon.png">
+        <h1>Days since VoidedSky's death: <span id="days"></span></h1>
+        <p style="width: 70%;">On 17 February 2024, at approximately 1:28 AM UTC, the VoidedSky Minecraft server was officially deleted, officially marking the end of a server which had existed since shortly after the 2022 Reddit r/place experiement and which had grown out of The Blue Corner and American Flag In Place community.</p>
+    </div>
+
+    <script>
+        function update() {
+            let deathTime = 1708133280000;
+            let deathDate = new Date(deathTime);
+
+            document.getElementById("days").innerHTML = Math.floor((Date.now() - deathTime) / 86400000);
+        }
+
+        update();
+        setInterval(update, 1000);
+    </script>
+</body>
+</html>

@@ -14,10 +14,32 @@
         body {
             margin: auto;
             text-align: center;
-            background-color: lightblue;
+            background-color: rgb(173, 216, 230);
         }
 
         p {
+            font-weight: bold;
+        }
+
+        #bar-container {
+            width: 30%;
+            height: 20px;
+            border: 3px solid black;
+            background-color: rgb(220, 240, 255);
+            border-radius: 10px;
+            margin: auto;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        #bar {
+            background-color: rgb(115, 144, 153);
+            height: 100%;
+            width: 100%;
+        }
+
+        #desc {
+            width: 70%;
             text-align: center;
             margin: auto;
         }
@@ -27,7 +49,13 @@
     <div>
         <img src="voidedsky_icon.png">
         <h1>Days since VoidedSky's death: <span id="days"></span></h1>
-        <p style="width: 70%;">On 17 February 2024, at approximately 1:28 AM UTC, the VoidedSky Minecraft server was officially deleted, officially marking the end of a server which had existed since shortly after the 2022 Reddit r/place experiement and which had grown out of The Blue Corner and American Flag In Place community.</p>
+
+        <p>Progress to next day: <span id="progress"></span></p>
+        <div id="bar-container">
+            <div id="bar"></div>
+        </div>
+
+        <p id="desc">On 17 February 2024, at approximately 1:28 AM UTC, the VoidedSky Minecraft server was officially deleted, officially marking the end of a server which had existed since shortly after the 2022 Reddit r/place experiement and which had grown out of The Blue Corner and American Flag In Place community.</p>
     </div>
 
     <script>
@@ -35,7 +63,12 @@
             let deathTime = 1708133280000;
             let deathDate = new Date(deathTime);
 
-            document.getElementById("days").innerHTML = Math.floor((Date.now() - deathTime) / 86400000);
+            let daysSince = Math.floor((Date.now() - deathTime) / 86400000);
+            let progressToNextDay = Math.floor(Date.now() - deathTime) / 864000;
+
+            document.getElementById("days").innerHTML = daysSince;
+            document.getElementById("progress").innerHTML = progressToNextDay.toFixed(2) + "%";
+            document.getElementById("bar").style.width = progressToNextDay + "%";
         }
 
         update();

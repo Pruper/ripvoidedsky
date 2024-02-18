@@ -23,6 +23,10 @@
             font-weight: 512;
         }
 
+        hr {
+            width: 80%;
+        }
+
         #bar-container {
             width: 30%;
             height: 20px;
@@ -40,7 +44,7 @@
             width: 100%;
         }
 
-        #desc {
+        .desc {
             width: 70%;
             text-align: center;
             margin: auto;
@@ -48,6 +52,10 @@
 
         gold {
             color: gold;
+        }
+
+        green {
+            color: lime;
         }
     </style>
 </head>
@@ -61,16 +69,33 @@
             <div id="bar"></div>
         </div>
 
-        <p id="desc">
+        <p class="desc">
             On 17 February 2024, at approximately 1:28 AM UTC, the VoidedSky Minecraft server, originally known as EarthCraft, was officially deleted, marking the end of a server which had existed since shortly after the 2022 Reddit r/place experiment. Its community grew out of people heralding from communities such as The Blue Corner and American Flag In Place, eventually becoming so much more than just r/place participants.
             <br><br>
-            VoidedSky at its peak, boasted a dedicated staff team and a playerbase of nearly one thousand unique individuals, who stuck together for six seasons of gameplay. Factions such as TBC, USSR, CES, Imperium, RDS, and the USI made their rise on this server, and their members would continue to maintain cohesion in the server's subsequent seasons. While the server eventually declined, much of the community would eventually unite under the banner of the Roman Empire on another survival server known as Dominia.
+            VoidedSky at its peak boasted a dedicated staff team and a playerbase of nearly one thousand unique individuals, who stuck together for six seasons of gameplay. Factions such as TBC, USSR, CES, Imperium, RDS, and the USI made their rise on this server, and their members would continue to maintain cohesion in the server's subsequent seasons. While the server eventually declined, much of the community would eventually unite under the banner of the Roman Empire on another survival server known as Dominia.
             <br><br>
             Propaganda was spread, wars were fought, events were held, outlaws were banished, memories were created and friendships were forged on this basic Minecraft earth map.
             <br><br>
             To any former VoidedSky player who may stumble across this in the future, <gold><strong>thank you</strong></gold>.
             <br><br>
             - Pruper, dedicated developer and player
+            <br><br>
+        </p>
+        <hr><br>
+        <p class="desc">
+            Final Message from the VoidedSky Manager:
+            <br><br>
+            To all those whom traveled this road with me, thank you.
+            <br><br>
+            It was <strong><green>you</green></strong> that made this server what it was.
+            <br><br>
+            It was <strong><green>you</green></strong> that made this community what it was.
+            <br><br>
+            It was <strong><green>you</green></strong> that made all the enjoyable moments throughout the history of VoidedSky.
+            <br><br>
+            From the first World War of VoidedSky to the last block placed on the world, all of it was an enjoyable moment. I hope that for the short time that VoidedSky was alive that you were able to find a moment of joy when playing the server. Maybe you got mad at another member or suffered from the broken rules that plagued most of the server's life. But despite all of these quirks it was these moments that forged VoidedSky into the history of the Minecraft community. I wish I could have been better and prevented much more of the issues that led to the downfall of VoidedSky but like all good things VoidedSky must come to an end. Thank you very much for all of your participations.
+            <br><br>
+            - Anomalia, VoidedSky Manager, signing out.
         </p>
     </div>
 
@@ -80,7 +105,7 @@
             let deathDate = new Date(deathTime);
 
             let daysSince = Math.floor((Date.now() - deathTime) / 86400000);
-            let progressToNextDay = Math.floor(Date.now() - deathTime) / 864000;
+            let progressToNextDay = Math.floor(Date.now() - deathTime) / 864000 % 100;
 
             document.getElementById("days").innerHTML = daysSince;
             document.getElementById("progress").innerHTML = progressToNextDay.toFixed(2) + "%";
